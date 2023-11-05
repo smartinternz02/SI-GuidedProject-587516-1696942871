@@ -106,7 +106,7 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                 )
             },
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color.Transparent
+                containerColor = Color.Transparent
             )
 
         )
@@ -126,7 +126,7 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
             },
             placeholder = { Text(text = "password", color = Color.Black) },
             visualTransformation = PasswordVisualTransformation(),
-            colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent)
+            colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent)
         )
 
 

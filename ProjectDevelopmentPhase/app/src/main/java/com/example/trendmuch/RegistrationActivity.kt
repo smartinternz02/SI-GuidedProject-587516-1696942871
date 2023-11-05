@@ -20,6 +20,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -74,7 +75,7 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                 text = "Sign Up",
                 color = Color(0xFF6495ED),
                 fontWeight = FontWeight.Bold,
-                fontSize = 24.sp, style = MaterialTheme.typography.h1
+                fontSize = 24.sp, style = MaterialTheme.typography.h1 ,
             )
             Divider(
                 color = Color.LightGray, thickness = 2.dp, modifier = Modifier
@@ -107,7 +108,7 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                 )
             },
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color.Transparent
+                containerColor = Color.Transparent
             )
 
         )
@@ -126,7 +127,7 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
             },
             placeholder = { Text(text = "password", color = Color.Black) },
             visualTransformation = PasswordVisualTransformation(),
-            colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent)
+            colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent)
         )
 
 
@@ -144,7 +145,7 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                 )
             },
             placeholder = { Text(text = "email", color = Color.Black) },
-            colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent)
+            colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent)
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -182,7 +183,7 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                 }
             },
             shape = RoundedCornerShape(20.dp),
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF77a2ef)),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF77a2ef)),
             modifier = Modifier.width(200.dp)
                 .padding(top = 16.dp)
         ) {
@@ -208,8 +209,8 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
             }) {
                 Text(text = "Log in",
                     fontWeight = FontWeight.Bold,
-                    style = MaterialTheme.typography.subtitle1,
-                    color = Color(0xFF4285F4)
+                    color = Color(0xFF4285F4),
+                    style = MaterialTheme.typography.subtitle1 ,
                 )}
 
         }
