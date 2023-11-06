@@ -80,7 +80,7 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
             Text(text = "Login",
                 color = Color(0xFF6495ED),
                 fontWeight = FontWeight.Bold,
-                fontSize = 24.sp,style = MaterialTheme.typography.h1)
+                fontSize = 24.sp,style = MaterialTheme.typography.displayMedium)
             Divider(color = Color.LightGray, thickness = 2.dp, modifier = Modifier
                 .width(155.dp)
                 .padding(top = 20.dp, start = 20.dp))
@@ -135,7 +135,7 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
         if (error.isNotEmpty()) {
             Text(
                 text = error,
-                color = MaterialTheme.colors.error,
+                color = MaterialTheme.colorScheme.error,
                 modifier = Modifier.padding(vertical = 16.dp)
             )
         }
@@ -149,7 +149,7 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                         context.startActivity(
                             Intent(
                                 context,
-                                MainPage::class.java
+                                Mainpage::class.java
                             )
                         )
                         //onLoginSuccess()
@@ -161,7 +161,7 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                 }
             },
             shape = RoundedCornerShape(20.dp),
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF77a2ef)),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF77a2ef)),
             modifier = Modifier.width(200.dp)
                 .padding(top = 16.dp)
         ) {
@@ -193,6 +193,6 @@ fun LoginScreen(context: Context, databaseHelper: UserDatabaseHelper) {
     }
 }
 private fun startMainPage(context: Context) {
-    val intent = Intent(context, MainPage::class.java)
+    val intent = Intent(context, Mainpage::class.java)
     ContextCompat.startActivity(context, intent, null)
 }

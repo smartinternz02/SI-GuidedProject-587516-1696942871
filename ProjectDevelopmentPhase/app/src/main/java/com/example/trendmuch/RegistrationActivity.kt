@@ -20,7 +20,6 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -75,7 +74,7 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                 text = "Sign Up",
                 color = Color(0xFF6495ED),
                 fontWeight = FontWeight.Bold,
-                fontSize = 24.sp, style = MaterialTheme.typography.h1 ,
+                fontSize = 24.sp, style = MaterialTheme.typography.displayMedium ,
             )
             Divider(
                 color = Color.LightGray, thickness = 2.dp, modifier = Modifier
@@ -153,7 +152,7 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
         if (error.isNotEmpty()) {
             Text(
                 text = error,
-                color = MaterialTheme.colors.error,
+                color = MaterialTheme.colorScheme.error,
                 modifier = Modifier.padding(vertical = 16.dp)
             )
         }
@@ -210,7 +209,7 @@ fun RegistrationScreen(context: Context, databaseHelper: UserDatabaseHelper) {
                 Text(text = "Log in",
                     fontWeight = FontWeight.Bold,
                     color = Color(0xFF4285F4),
-                    style = MaterialTheme.typography.subtitle1 ,
+                    style = MaterialTheme.typography.displayMedium ,
                 )}
 
         }

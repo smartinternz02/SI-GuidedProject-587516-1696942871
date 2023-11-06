@@ -18,12 +18,14 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -36,14 +38,14 @@ import coil.transform.CircleCropTransformation
 import com.example.trendmuch.Articles
 import com.example.trendmuch.ui.theme.TrendMuchTheme
 
-class MainActivity : ComponentActivity() {
+class Mainpage : ComponentActivity() {
     val mainViewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             TrendMuchTheme() {
                 // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
+                Surface(color = MaterialTheme.colorScheme.background) {
                     Column() {
 
 
@@ -93,7 +95,7 @@ fun MovieItem(context: Context, movie: Articles, index: Int, selectedIndex: Int,
               onClick: (Int) -> Unit) {
 
     val backgroundColor =
-        if (index == selectedIndex) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background
+        if (index == selectedIndex) Color.Black else Color.White
 
     Card(
         modifier = Modifier
@@ -104,9 +106,11 @@ fun MovieItem(context: Context, movie: Articles, index: Int, selectedIndex: Int,
                     Log.i("test123abc", "MovieItem: $index/n$selectedIndex")
                 })
             .clickable { onClick(index) }
-            .height(180.dp), shape = RoundedCornerShape(8.dp), elevation = 4.dp
+            .height(180.dp), shape = RoundedCornerShape(8.dp), elevation = CardDefaults.cardElevation(
+            defaultElevation = 4.dp
+        )
     ) {
-        Surface(color = Color.White) {
+        Surface(color = Color.Cyan) {
 
             Row(
                 Modifier
@@ -137,7 +141,7 @@ fun MovieItem(context: Context, movie: Articles, index: Int, selectedIndex: Int,
                         .padding(4.dp)
                         .fillMaxHeight()
                         .weight(0.8f)
-                        .background(Color.Gray)
+                        .background(Color(0xFF4dab33))
                         .padding(20.dp)
                         .selectable(true, true, null,
                             onClick = {
@@ -154,8 +158,9 @@ fun MovieItem(context: Context, movie: Articles, index: Int, selectedIndex: Int,
 
                     Text(
                         text = movie.title.toString(),
-                        style = MaterialTheme.typography.subtitle1,
-                        fontWeight = FontWeight.Bold
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
                     )
 
                     HtmlText(html = movie.description.toString())
@@ -169,7 +174,7 @@ fun MovieItem(context: Context, movie: Articles, index: Int, selectedIndex: Int,
         AndroidView(
             modifier = modifier
                 .fillMaxSize()
-                .size(33.dp),
+                .size(30.dp),
             factory = { context -> TextView(context) },
             update = { it.text = HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_COMPACT) }
         )
