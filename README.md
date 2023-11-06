@@ -47,6 +47,7 @@ To contribute to this project, follow these steps:
 -   ### Update your local main branch to match the upstream main branch:
 
     `git checkout main`
+    
     `git merge upstream/main`
 
 -   ### Push the updated main branch to your fork:
